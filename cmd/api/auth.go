@@ -25,6 +25,16 @@ type loginResponse struct {
 	Token string `json:"token"`
 }
 
+// Login logs in a user
+//
+//	@Summary		Logs in a user
+//	@Description	Logs in a user
+//	@Tags			auth
+//	@Accept			json
+//	@Produce		json
+//	@Param			user	body	loginRequest	true	"User"
+//	@Success		200	{object}	loginResponse
+//	@Router			/api/v1/auth/login [post]
 func (app *application) login(ctx *gin.Context) {
 	var auth loginRequest
 
@@ -64,6 +74,15 @@ func (app *application) login(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, loginResponse{Token: tokenString})
 }
 
+// RegisterUser registers a new user
+// @Summary		Registers a new user
+// @Description	Registers a new user
+// @Tags			auth
+// @Accept			json
+// @Produce		json
+// @Param			user	body		registerRequest	true	"User"
+// @Success		201	{object}	database.User
+// @Router			/api/v1/auth/register [post]
 func (app *application) registerUser(ctx *gin.Context) {
 	var register registerRequest
 

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 
+	_ "github.com/gumeeee/rest-api-in-gin/docs"
 	"github.com/gumeeee/rest-api-in-gin/internal/database"
 	"github.com/gumeeee/rest-api-in-gin/internal/env"
 
@@ -11,6 +12,13 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+// @title Go Gin Rest API
+// @version 1.0
+// @description A rest API in Go using Gin framework
+// @securityDefinitions.apikey BearerAuth
+// @in header
+// @name Authorization
+// @description Enter your Bearer token in the format **Bearer &alt;token&gt;**
 type application struct {
 	port      int
 	jwtSecret string
